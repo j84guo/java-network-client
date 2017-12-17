@@ -1,0 +1,38 @@
+Components :
+-> main application
+-> command line parser
+-> http service
+-> response viewer
+
+Command Line Options :
+-> -m GET | POST // http method
+-> -h name=value // request headers
+-> -d string // url encoded string
+-> -f fileName // file to send via multipart form data
+
+Summary :
+1. JhttpApplication.java parses args using CliParser
+2. CommandLineParser.java returns an object containing url, http method, hash map of request headers, possible urlencoded data (ascii by definition) and possible filename (for multipart form data)
+3. JhttpApplication.java then passes this options object  HttpService.java which dynamically builds a request and sends it, returning the URLConnection
+4. The URLConnection is passed to ResponseViewer.java, which formats and sends output
+
+Body request headers :
+Content-Type
+Content-Length
+
+Default request headers :
+Accept
+Host
+User-Agent
+Date
+
+Output Example :
+>request line
+>request headers
+>
+>request body?
+
+<response line
+<response headers
+<
+<response body
