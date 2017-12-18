@@ -44,19 +44,19 @@ public class HttpService {
     Map<String, List<String>> requestHeaderMap = connection.getRequestProperties();
 
     // 4. set http body
-    if(options.data != null || options.fileName != null){
+    if(options.data != null){
+      connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
       connection.setDoOutput(true);
       OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-
-      if(options.data != null){
-        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        out.write(options.data);
-        out.write("\r\n");
-      }else if(options.fileName != null){
-        FileUploader fileUploader = new FileUploader(out);
-        fileUploader.addFilePart("fileUpload", options.fileName);
-      }
-
+      out.write(options.data);
+      out.write("\r\n");
+      out.close();
+    }else if(options.fileName != null){
+      connection.setRequestProperty("Content-Type", "multipart/form-data");
+      connection.setDoOutput(true);
+      OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
+      FileUploader fileUploader = new FileUploader(out);
+      fileUploader.addFilePart("fileUpload", options.fileName);
       out.close();
     }
 
