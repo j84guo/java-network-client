@@ -13,6 +13,7 @@ Options :
 -h name=value specifies custom HTTP headers to add
 
 Todo :
--smarter flags
+
+-java's URL class has issues with query string
 -java's URL connection prevents some request headers from being printed
 -format options
