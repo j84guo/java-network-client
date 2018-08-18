@@ -4,8 +4,8 @@ Java implementation of a cURL-like (client url request library) network client.
 ### Usage
 ```
 ./gradlew jar
-java -jar build/libs/java-network-client.jar http://www.google.ca</br>
-java -jar build/libs/java-network-client.jar -o spark.jar http://central.maven.org/maven2/org/apache/spark/spark-core_2.11/2.2.1/spark-core_2.11-2.2.1.jar</br>
+java -jar build/libs/java-network-client.jar http://www.google.ca
+java -jar build/libs/java-network-client.jar -o spark.jar http://central.maven.org/maven2/org/apache/spark/spark-core_2.11/2.2.1/spark-core_2.11-2.2.1.jar
 ```
 
 ### Options  
