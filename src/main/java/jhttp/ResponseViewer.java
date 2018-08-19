@@ -42,7 +42,7 @@ public class ResponseViewer {
 			while((c = in.read()) != -1){
 				bufferedOut.write(c);
 			}
-		}catch(Exception e){
+		}catch(IOException e){
       System.out.println("Error saving file.\n" + e);
     }
   }
@@ -83,7 +83,7 @@ public class ResponseViewer {
   private void printResponseBody(){
     try(InputStream raw = connection.getInputStream()){
   		printFromStream(raw);
-    }catch(Exception e){
+    }catch(IOException e){
       printFromStream(connection.getErrorStream());
     }
   }
@@ -95,7 +95,7 @@ public class ResponseViewer {
       while((c = reader.read()) != -1){ // note that this assumes the local encoding, in this case UTF-8
         System.out.print((char) c);
       }
-    }catch(Exception e){
+    }catch(IOException e){
       System.out.println(e);
     }
   }
