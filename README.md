@@ -1,11 +1,18 @@
 ## Jhttp
-Java implementation of a cURL-like (client url request library) network client.
+Java implementation of a curl-like (client url request library) network client supporting multipart/form-data file transfer .
 
 ### Usage
 ```
 ./gradlew jar
+
+# GET
 java -jar build/libs/java-network-client.jar http://www.google.ca
+
+# GET and save file to spark.jar
 java -jar build/libs/java-network-client.jar -o spark.jar http://central.maven.org/maven2/org/apache/spark/spark-core_2.11/2.2.1/spark-core_2.11-2.2.1.jar
+
+# POST multipart/form-data file
+java -jar build/libs/java-network-client.jar -f data.tar.gz http://127.0.0.1:8000
 ```
 
 ### Options  

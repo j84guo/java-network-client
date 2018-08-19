@@ -32,8 +32,8 @@ public class HttpService {
     HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 
     // 2. set http method
-		options.httpMethod = options.httpMethod == null? "GET" : options.httpMethod;
-		connection.setRequestMethod(options.httpMethod);
+    options.httpMethod = options.httpMethod == null? "GET" : options.httpMethod;
+    connection.setRequestMethod(options.httpMethod);
 
     // 3. set http headers and get their map
     setDefaultHeaders(obj, connection);
@@ -60,7 +60,7 @@ public class HttpService {
     }
 
     // 5. send request and return response object
-		connection.connect();
+    connection.connect();
     return new Response(requestHeaderMap, connection, options.outputFile);
   }
 
