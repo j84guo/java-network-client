@@ -8,7 +8,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import java.io.OutputStreamWriter;
-import java.io.OutputStream;
 
 import java.util.Date;
 import java.util.Map;
