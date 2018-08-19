@@ -100,16 +100,3 @@ public class ResponseViewer {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// end

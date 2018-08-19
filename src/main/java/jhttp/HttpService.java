@@ -71,20 +71,3 @@ public class HttpService {
     connection.setRequestProperty("Date", DATE.toString());
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// end
