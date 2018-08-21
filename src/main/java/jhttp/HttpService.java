@@ -51,10 +51,11 @@ public class HttpService {
       out.write("\r\n");
       out.close();
     }else if(options.fileName != null){
-      connection.setRequestProperty("Content-Type", "multipart/form-data");
+      FileUploader fileUploader = new FileUploader();
+      connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + fileUploader.getBoundary());
       connection.setDoOutput(true);
       OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-      FileUploader fileUploader = new FileUploader(out);
+      fileUploader.setOut(out);
       fileUploader.addFilePart("fileUpload", options.fileName);
       out.close();
     }

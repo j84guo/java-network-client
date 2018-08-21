@@ -11,9 +11,26 @@ public class FileUploader {
   private final String boundary;
   private OutputStreamWriter out;
 
+  public FileUploader(){
+      this.boundary = makeBoundary();
+  }
+
+  public FileUploader setOut(OutputStreamWriter out){
+      this.out = out;
+      return this;
+  }
+
+  public String getBoundary(){
+      return this.boundary;
+  }
+
   public FileUploader(OutputStreamWriter out){
     this.out = out;
-    this.boundary = "===" + System.currentTimeMillis() + "===";
+    this.boundary = makeBoundary();
+  }
+
+  private String makeBoundary(){
+      return "===" + System.currentTimeMillis() + "===";
   }
 
   public void addFormField(String name, String value) throws Exception {
@@ -42,7 +59,6 @@ public class FileUploader {
       out.flush();
       in.close();
   }
-
 }
 
 
