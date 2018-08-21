@@ -57,6 +57,7 @@ public class HttpService {
       OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
       fileUploader.setOut(out);
       fileUploader.addFilePart("fileUpload", options.fileName);
+      fileUploader.endParts();
       out.close();
     }
 

@@ -59,6 +59,10 @@ public class FileUploader {
       out.flush();
       in.close();
   }
+
+  public void endParts() throws Exception{
+      out.write("--" + boundary + "--\r\n");
+  }
 }
 
 
